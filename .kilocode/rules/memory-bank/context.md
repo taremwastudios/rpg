@@ -2,15 +2,15 @@
 
 ## Current State
 
-**App Status**: 📱 Phone OS interface with RPG theme
+**App Status**: 🎮 RPG Game with Phone OS interface
 
-An RPG-themed task management app with a phone-like home screen featuring:
+An RPG-themed game with a phone-like home screen featuring:
 - Status bar with time, signal, and battery
 - Weather widget
 - Quick action buttons (New Quest, Inventory, Party)
-- App grid with RPG-themed apps
+- App grid with RPG-themed apps including RPG game launcher
 - App dock with essential apps
-- Login and register screens accessible via the Quest app
+- Main game page with Tournaments, Arena, Store, My Clan, My Profile
 
 ## Recently Completed
 
@@ -18,11 +18,17 @@ An RPG-themed task management app with a phone-like home screen featuring:
 - [x] TypeScript configuration with strict mode
 - [x] Tailwind CSS 4 integration
 - [x] ESLint configuration
-- [x] Remove phone frame, use centered rectangle
+- [x] Remove phone frame, use centered rectangle (max-width: 1200px)
 - [x] Phone OS home screen with status bar
 - [x] App grid with interactive app icons
 - [x] App dock with quick access apps
 - [x] Weather widget and quick actions
+- [x] Create main game page at /game with:
+  - Tournaments tab (🏆) - Dragon Slayer Cup, Shadow Arena, Guild War
+  - Arena tab (⚔️) - Live matches with betting
+  - Store tab (🛒) - Item store with legendary/epic/rare items
+  - My Clan tab (👥) - Clan stats, members, leader
+  - My Profile tab (👤) - Player stats, gold, wins/losses
 
 ## Current Structure
 
@@ -30,6 +36,7 @@ An RPG-themed task management app with a phone-like home screen featuring:
 |----------------|---------|--------|
 | `src/app/page.tsx` | Home page (redirects to /home) | ✅ Ready |
 | `src/app/home/page.tsx` | Phone OS home screen | ✅ Ready |
+| `src/app/game/page.tsx` | Main game page (Tournaments, Arena, Store, Clan, Profile) | ✅ Ready |
 | `src/app/layout.tsx` | Root layout | ✅ Ready |
 | `src/app/globals.css` | Global styles | ✅ Ready |
 | `src/app/login/page.tsx` | Login page | ✅ Ready |
@@ -38,15 +45,22 @@ An RPG-themed task management app with a phone-like home screen featuring:
 
 ## Current Focus
 
-The app now has a phone-like OS interface. Users land on the home screen which shows:
+The app has a phone-like OS interface. Users land on the home screen which shows:
 - Status bar (time, signal, battery)
 - Welcome message with date
 - Weather widget
 - Quick action buttons
-- App grid with 10 apps
+- App grid with 10 apps (including RPG game launcher)
 - App dock with 5 essential apps
 
-The Quest app (⚔️) in the dock links to the login page.
+The RPG app (🎮) in the grid and Quest app (⚔️) in dock now link to the main game page at `/game`.
+
+The main game page features 5 tabs:
+1. **Tournaments** - Active tournaments with prizes and player counts
+2. **Arena** - Live arena matches with betting
+3. **Store** - Item store with rarity system
+4. **My Clan** - Clan management and stats
+5. **My Profile** - Player profile with stats
 
 ## Available Recipes
 
@@ -65,4 +79,5 @@ The Quest app (⚔️) in the dock links to the login page.
 | Date | Changes |
 |------|---------|
 | Initial | Template created with base setup |
-| Now | Added phone OS home screen with apps and status bar |
+| Later | Added phone OS home screen with apps and status bar |
+| Recent | Created main game page with Tournaments, Arena, Store, My Clan, My Profile |
