@@ -8,16 +8,15 @@ function AppIcon({
   icon, 
   label, 
   color = "from-purple-500 to-pink-500",
-  onClick 
+  href
 }: { 
   icon: string; 
   label: string; 
   color?: string;
-  onClick?: () => void;
+  href?: string;
 }) {
-  return (
+  const iconElement = (
     <button 
-      onClick={onClick}
       className="flex flex-col items-center gap-2 group touch-none"
     >
       <div className={`
@@ -37,6 +36,11 @@ function AppIcon({
       </span>
     </button>
   );
+  
+  if (href) {
+    return <Link href={href}>{iconElement}</Link>;
+  }
+  return iconElement;
 }
 
 // Status bar component
@@ -88,7 +92,7 @@ function AppDock() {
           label="Messages" 
           color="from-green-500 to-emerald-600"
         />
-        <Link href="/login">
+        <Link href="/game">
           <AppIcon 
             icon="⚔️" 
             label="Quest" 
@@ -146,7 +150,7 @@ export default function PhoneOS() {
     { icon: "📸", label: "Photos", color: "from-yellow-500 to-orange-600" },
     { icon: "🛒", label: "Store", color: "from-blue-600 to-indigo-700" },
     { icon: "💼", label: "Files", color: "from-slate-500 to-slate-700" },
-    { icon: "🎮", label: "Games", color: "from-purple-600 to-violet-800" },
+    { icon: "🎮", label: "RPG", color: "from-purple-600 to-violet-800", href: "/game" },
     { icon: "💰", label: "Wallet", "color": "from-green-600 to-teal-600" },
     { icon: "📱", label: "Apps", color: "from-indigo-500 to-purple-600" },
   ];
@@ -210,7 +214,7 @@ export default function PhoneOS() {
         <div className="px-6 mb-6">
           <h2 className="text-white/80 text-sm font-semibold mb-3 ml-1">Quick Actions</h2>
           <div className="flex gap-3">
-            <Link href="/login" className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl p-3 text-center shadow-lg hover:scale-105 transition-transform">
+            <Link href="/game" className="flex-1 bg-gradient-to-r from-amber-600 to-orange-600 rounded-xl p-3 text-center shadow-lg hover:scale-105 transition-transform">
               <div className="text-2xl mb-1">⚔️</div>
               <div className="text-white text-sm font-semibold">New Quest</div>
             </Link>
@@ -235,6 +239,7 @@ export default function PhoneOS() {
                 icon={app.icon}
                 label={app.label}
                 color={app.color}
+                href={app.href}
               />
             ))}
           </div>
