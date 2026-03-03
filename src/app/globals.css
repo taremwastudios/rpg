@@ -1,11 +1,11 @@
 @import "tailwindcss";
 
-/* Game Container - Desktop */
+/* Game Container - Full Width Centered */
 @media (min-width: 768px) {
   .game-container {
     position: relative;
     width: 100%;
-    max-width: 600px;
+    max-width: 1200px;
     height: auto;
     min-height: 600px;
     max-height: 90vh;
